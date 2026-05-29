@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-dark: #3d2525;
+  --color-cream-bg: #F7F1E8;
+  --color-sand-surface: #EDE3D4;
+  --color-sage-accent: #7C8B6F;
+  --color-terracotta: #C36B4B;
+  --color-charcoal-text: #2A1C1C;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  /* Design system variables matching original HTML */
+  --col-primary: #3d2525;        /* Bordeaux / cacao caldo - Portante */
+  --col-bg: #F7F1E8;             /* Crema caldo di fondo */
+  --col-surface: #EDE3D4;        /* Sabbia per sezioni alternate */
+  --col-accent: #7C8B6F;         /* Verde salvia */
+  --col-accent-2: #C36B4B;       /* Terracotta */
+  --col-text: #2A1C1C;           /* Testo scuro */
+  
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: all 0.2s ease-in-out;
+  --height-header: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--col-bg);
+  color: var(--col-text);
+  line-height: 1.7;
+}
+
+/* Elegant selection colors */
+::selection {
+  background-color: var(--col-primary);
+  color: var(--col-bg);
+}
+
+/* Custom scrollbar for an editorial feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--col-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--col-surface);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--col-accent);
+}
+
+/* Floating Animation */
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-slow {
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+/* Grid background accent */
+.grid-paper {
+  background-image: 
+    radial-gradient(var(--col-surface) 1px, transparent 1px), 
+    radial-gradient(var(--col-surface) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}

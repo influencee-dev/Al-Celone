@@ -1,0 +1,6 @@
+{
+  "name": "Agriturismo Al Celone",
+  "description": "Agriturismo e Ristorante a Foggia (Puglia). Cucina tipica pugliese, camere immerse nella quiete del Tavoliere e autentica ospitalità rurale.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
