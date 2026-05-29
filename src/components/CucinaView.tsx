@@ -106,7 +106,7 @@ export default function CucinaView() {
   };
 
   return (
-    <div className="bg-cream-bg min-h-screen">
+    <div className="pt-[110px] md:pt-[130px] bg-cream-bg min-h-screen">
       
       {/* COHERENT INNER COMPACT HERO */}
       <section className="relative w-full h-[50vh] min-h-[380px] flex items-center justify-center text-center overflow-hidden bg-[#1c1010]">

@@ -45,10 +45,10 @@ export default function Header({ currentView, onViewChange, onTableBookingClick 
     <>
       <header
         id="main-header"
-        className={`fixed top-0 left-0 w-full h-[80px] z-[1000] flex items-center justify-between px-6 md:px-16 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-[1000] flex items-center justify-between px-6 md:px-16 transition-all duration-300 ${
           isScrolled || currentView !== 'home'
-            ? 'bg-primary-dark/95 shadow-lg h-[70px] backdrop-blur-md border-b border-primary-dark/10'
-            : 'bg-transparent'
+            ? 'bg-primary-dark/95 shadow-lg h-[95px] md:h-[110px] backdrop-blur-md border-b border-primary-dark/10'
+            : 'bg-transparent h-[140px] md:h-[170px]'
         }`}
       >
         <div className="logo-container flex items-center">
@@ -59,7 +59,11 @@ export default function Header({ currentView, onViewChange, onTableBookingClick 
             <img 
               src="/logo.png" 
               alt="Al Celone Logo" 
-              className="h-12 w-auto object-contain transition-transform duration-300 hover:scale-103"
+              className={`w-auto object-contain transition-all duration-300 hover:scale-103 ${
+                isScrolled || currentView !== 'home'
+                  ? 'h-18 md:h-22 lg:h-24'
+                  : 'h-24 md:h-32 lg:h-36'
+              }`}
             />
           </button>
         </div>

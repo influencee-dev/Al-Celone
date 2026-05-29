@@ -138,7 +138,7 @@ export default function CamereView() {
   };
 
   return (
-    <div className="pt-[80px] bg-cream-bg min-h-screen">
+    <div className="pt-[110px] md:pt-[130px] bg-cream-bg min-h-screen">
       
       {/* Editorial Header */}
       <section className="relative py-24 px-6 md:px-16 bg-[#261f1b] text-cream-bg text-center">

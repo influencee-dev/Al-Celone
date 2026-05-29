@@ -124,12 +124,12 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           className="relative z-10 max-w-4xl flex flex-col items-center"
         >
           {/* Centered Brand Logo Mark */}
-          <div className="flex flex-col items-center justify-center mb-8 select-none">
+          <div className="flex flex-col items-center justify-center mb-10 md:mb-14 select-none">
             {/* Custom Logo Image with fallback */}
             <img 
               src="/logo.png" 
               alt="Logo Al Celone" 
-              className="max-h-40 md:max-h-48 w-auto object-contain"
+              className="max-h-72 md:max-h-96 lg:max-h-[420px] w-auto max-w-[90%] object-contain filter drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]"
               onError={(e) => {
                 // If logo.png doesn't exist yet, we show a clean message/placeholder
                 e.currentTarget.style.display = 'none';
