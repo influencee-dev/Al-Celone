@@ -17,37 +17,37 @@ interface RoomGalleryItem {
 const GALLERY_ROOMS: RoomGalleryItem[] = [
   {
     id: 'camera-1',
-    src: '/images/camera-1.jpg',
+    src: '/images/camera-ulivo.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800',
     title: 'La quiete dell’alba'
   },
   {
     id: 'camera-2',
-    src: '/images/camera-2.jpg',
+    src: '/images/camera-grano.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800',
     title: 'Luce e pietra'
   },
   {
     id: 'camera-3',
-    src: '/images/camera-3.jpg',
+    src: '/images/camera-melograno.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800',
     title: 'Biancheria d’altri tempi'
   },
   {
     id: 'camera-4',
-    src: '/images/camera-4.jpg',
+    src: '/images/camera-laspiga.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800',
     title: 'Il lusso del silenzio'
   },
   {
     id: 'camera-5',
-    src: '/images/camera-5.jpg',
+    src: '/images/galleria-camere.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=800',
     title: 'Sguardo sulla campagna'
   },
   {
     id: 'camera-6',
-    src: '/images/camera-6.jpg',
+    src: '/images/camere-hero.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=800',
     title: 'Dettagli di benessere'
   }

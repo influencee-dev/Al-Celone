@@ -54,20 +54,13 @@ export default function Header({ currentView, onViewChange, onTableBookingClick 
         <div className="logo-container flex items-center">
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 cursor-pointer group text-left"
+            className="flex items-center cursor-pointer"
           >
-            {/* Elegant SVG/CSS Fallback for logo if image doesn't exist */}
-            <div className="w-10 h-10 rounded-full bg-sage-accent/20 flex items-center justify-center border border-sage-accent/30 group-hover:bg-sage-accent/40 transition-colors">
-              <Utensils className="w-5 h-5 text-cream-bg" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl tracking-wider font-semibold text-cream-bg line-clamp-1">
-                Al Celone
-              </span>
-              <span className="font-sans text-[10px] tracking-widest text-sage-accent uppercase">
-                Agriturismo
-              </span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Al Celone Logo" 
+              className="h-12 w-auto object-contain transition-transform duration-300 hover:scale-103"
+            />
           </button>
         </div>
 
