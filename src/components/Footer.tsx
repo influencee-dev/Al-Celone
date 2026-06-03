@@ -23,9 +23,16 @@ export default function Footer({ onViewChange }: FooterProps) {
         
         {/* Brand Information */}
         <div className="flex flex-col gap-5">
-          <h3 className="text-3xl font-serif text-cream-bg tracking-wide">
-            Al Celone
-          </h3>
+          <button
+            onClick={() => handleNavClick('home')}
+            className="flex items-center cursor-pointer justify-start self-start"
+          >
+            <img 
+              src="/logo.png" 
+              alt="Al Celone Logo" 
+              className="h-20 w-auto object-contain transition-transform duration-300 hover:scale-103"
+            />
+          </button>
           <p className="text-sm text-cream-bg/75 leading-relaxed max-w-sm">
             Oasi rurale, autentica gastronomia tipica e accoglienza contadina alle porte del Tavoliere in Puglia. Coltiviamo passione rurale ed ospitalità da generazioni.
           </p>

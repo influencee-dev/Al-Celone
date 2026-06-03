@@ -106,7 +106,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2 Persone (Letto Matrimoniale)',
     pricePerNight: '€85 / Notte',
     amenities: ['Bagno Privato', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione Inclusa', 'Ingresso Indipendente'],
-    imageUrl: '/images/camera-ulivo.jpg',
+    imageUrl: '/images/camera1.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200'
   },
   {
@@ -116,7 +116,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2-3 Persone (Matrimoniale + Letto Singolo)',
     pricePerNight: '€95 / Notte',
     amenities: ['Bagno Privato', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione Inclusa', 'TV Flat Screen', 'Frigobar'],
-    imageUrl: '/images/camera-grano.jpg',
+    imageUrl: '/images/camera2.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200'
   },
   {
@@ -126,7 +126,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2-4 Persone (Matrimoniale + 2 Letti Singoli)',
     pricePerNight: '€130 / Notte',
     amenities: ['Doppio Bagno', 'Giardino Privato', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione Inclusa', 'Angolo Tisane', 'Cassaforte'],
-    imageUrl: '/images/camera-melograno.jpg',
+    imageUrl: '/images/camera3.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200'
   },
   {
@@ -136,7 +136,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2 Persone (Letto King Size)',
     pricePerNight: '€110 / Notte',
     amenities: ['Bagno Suite con Vasca', 'Area Salotto', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione in camera', 'Macchina Caffè espresso', 'Ingresso Indipendente'],
-    imageUrl: '/images/camera-laspiga.jpg',
+    imageUrl: '/images/camera4.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200'
   }
 ];

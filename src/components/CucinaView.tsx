@@ -18,63 +18,63 @@ interface GalleryItem {
 const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'piatto-1',
-    src: '/images/cucina-piatto-1.jpg',
+    src: '/images/cucina1.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200',
     caption: 'Orecchiette fatte a mano con cime di rapa pugliesi coltivate biologicamente',
     isTall: true
   },
   {
     id: 'piatto-2',
-    src: '/images/cucina-piatto-2.jpg',
+    src: '/images/cucina2.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1573145959956-e9fae6b8845d?q=80&w=1200',
     caption: 'Focaccia pugliese calda aromatizzata al rosmarino selvatico e pomodorini cotta al forno',
   },
   {
     id: 'piatto-3',
-    src: '/images/cucina-piatto-3.jpg',
+    src: '/images/cucina3.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1200',
     caption: 'Antipasto rustico con formaggi a latte crudo e salumi stagionati del Tavoliere',
   },
   {
     id: 'piatto-4',
-    src: '/images/cucina-piatto-4.jpg',
+    src: '/images/cucina4.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200',
     caption: 'Grigliata mista saporita di carni locali della Capitanata cotte su legno d’ulivo',
   },
   {
     id: 'piatto-5',
-    src: '/images/cucina-piatto-5.jpg',
+    src: '/images/cucina5.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1563379926898-05f4575a4538?q=80&w=1200',
     caption: 'Cavatelli fatti in casa tirati a mano con sugo denso di pomodori nostrani e basilico dell’orto',
     isTall: true
   },
   {
     id: 'piatto-6',
-    src: '/images/cucina-piatto-6.jpg',
+    src: '/images/cucina6.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=1200',
     caption: 'Olio extravergine dorato novello ricavato per spremitura a freddo dai nostri ulivi foggiani',
   },
   {
     id: 'piatto-7',
-    src: '/images/cucina-piatto-7.jpg',
+    src: '/images/cucina7.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200',
     caption: 'Zuppa caldissima della tradizione foggiana con purea di fave e cicorie selvatiche campestri',
   },
   {
     id: 'piatto-8',
-    src: '/images/cucina-piatto-8.jpg',
+    src: '/images/cucina8.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1200',
     caption: 'Verdure gratinate dell’orto foggiano, farcite con pangrattato profumato alle erbe e pepe',
   },
   {
     id: 'piatto-9',
-    src: '/images/cucina-piatto-9.jpg',
+    src: '/images/cucina9.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=1200',
     caption: 'Cartellate e dolci tradizionali pugliesi cotti con uova del nostro pollaio e vincotto di fichi',
   },
   {
     id: 'piatto-10',
-    src: '/images/cucina-piatto-10.jpg',
+    src: '/images/cucina10.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200',
     caption: 'Pane rurale di grano duro cotto rigorosamente a legna secondo la secolare usanza contadina',
   }
@@ -106,13 +106,13 @@ export default function CucinaView() {
   };
 
   return (
-    <div className="pt-[110px] md:pt-[130px] bg-cream-bg min-h-screen">
+    <div className="pt-[95px] md:pt-[110px] bg-cream-bg min-h-screen">
       
       {/* COHERENT INNER COMPACT HERO */}
       <section className="relative w-full h-[50vh] min-h-[380px] flex items-center justify-center text-center overflow-hidden bg-[#1c1010]">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/cucina-hero.jpg"
+            src="/images/cucina-hero.png"
             alt="I segreti e la passione della cucina dell'Agriturismo Al Celone"
             className="w-full h-full object-cover opacity-40 scale-103 object-center"
             onError={(e) => {

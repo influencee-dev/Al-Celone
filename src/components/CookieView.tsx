@@ -8,7 +8,7 @@ import { Eye, Shield, CheckCircle, Info, Settings } from 'lucide-react';
 
 export default function CookieView() {
   return (
-    <div className="bg-[#F7F1E8] min-h-screen pt-24 text-[#2A1C1C]">
+    <div className="bg-[#F7F1E8] min-h-screen pt-[95px] md:pt-[110px] text-[#2A1C1C]">
       
       {/* Policy Hero Header */}
       <section className="py-16 px-6 md:px-16 bg-gradient-to-br from-[#1c1010] to-[#3d2525] text-[#F7F1E8]">

@@ -103,7 +103,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
         {/* Soft atmospheric rustic overlay & background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/home-hero.jpg"
+            src="/images/home-hero.png"
             alt="Paesaggio rurale e uliveti pugliesi dell'Agriturismo Al Celone"
             className="w-full h-full object-cover opacity-45 scale-105"
             onError={(e) => {
@@ -121,7 +121,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="relative z-10 max-w-4xl flex flex-col items-center"
+          className="relative z-10 max-w-5xl flex flex-col items-center"
         >
           {/* Centered Brand Logo Mark */}
           <div className="flex flex-col items-center justify-center mb-10 md:mb-14 select-none">
@@ -129,7 +129,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
             <img 
               src="/logo.png" 
               alt="Logo Al Celone" 
-              className="max-h-72 md:max-h-96 lg:max-h-[420px] w-auto max-w-[90%] object-contain filter drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]"
+              className="max-h-96 md:max-h-[480px] lg:max-h-[580px] w-auto max-w-[95%] object-contain filter drop-shadow-[0_8px_35px_rgba(0,0,0,0.7)]"
               onError={(e) => {
                 // If logo.png doesn't exist yet, we show a clean message/placeholder
                 e.currentTarget.style.display = 'none';
@@ -202,7 +202,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           >
             <div className="relative rounded overflow-hidden shadow-xl group border border-primary-dark/5">
               <img
-                src="/images/home-bio.jpg"
+                src="/images/home-ospitalita.png"
                 alt="Dettaglio ospitale ed accogliente dell'Agriturismo Al Celone"
                 className="w-full h-[380px] md:h-[480px] object-cover block group-hover:scale-105 transition-all duration-700"
                 onError={(e) => {
@@ -469,7 +469,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
             {/* Sidebar Column (Image & Info Box) */}
             <div className="md:col-span-5 relative min-h-[350px] flex flex-col justify-end bg-[#1c1010]">
               <img
-                src="/images/home-booking.jpg"
+                src="/images/home-form.png"
                 alt="Tavola imbandita con pietanze tradizionali fatte in casa"
                 className="absolute inset-0 w-full h-full object-cover opacity-60"
                 onError={(e) => {

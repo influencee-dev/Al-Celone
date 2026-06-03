@@ -17,37 +17,37 @@ interface RoomGalleryItem {
 const GALLERY_ROOMS: RoomGalleryItem[] = [
   {
     id: 'camera-1',
-    src: '/images/camera-1.jpg',
+    src: '/images/camera1.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800',
     title: 'La quiete dell’alba'
   },
   {
     id: 'camera-2',
-    src: '/images/camera-2.jpg',
+    src: '/images/camera2.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800',
     title: 'Luce e pietra'
   },
   {
     id: 'camera-3',
-    src: '/images/camera-3.jpg',
+    src: '/images/camera3.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800',
     title: 'Biancheria d’altri tempi'
   },
   {
     id: 'camera-4',
-    src: '/images/camera-4.jpg',
+    src: '/images/camera4.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800',
     title: 'Il lusso del silenzio'
   },
   {
     id: 'camera-5',
-    src: '/images/camera-5.jpg',
+    src: '/images/camera5.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=800',
     title: 'Sguardo sulla campagna'
   },
   {
     id: 'camera-6',
-    src: '/images/camera-6.jpg',
+    src: '/images/camera6.png',
     fallbackSrc: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=800',
     title: 'Dettagli di benessere'
   }
@@ -138,13 +138,13 @@ export default function CamereView() {
   };
 
   return (
-    <div className="pt-[110px] md:pt-[130px] bg-cream-bg min-h-screen">
+    <div className="pt-[95px] md:pt-[110px] bg-cream-bg min-h-screen">
       
       {/* Editorial Header */}
       <section className="relative py-24 px-6 md:px-16 bg-[#261f1b] text-cream-bg text-center">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/images/camere-hero.jpg"
+            src="/images/camere-hero.png"
             alt="Atmosfera rilassante e soffusa delle camere rurali dell'Agriturismo Al Celone"
             className="w-full h-full object-cover opacity-20"
             onError={(e) => {

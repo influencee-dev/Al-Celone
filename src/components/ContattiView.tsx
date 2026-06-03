@@ -85,13 +85,13 @@ export default function ContattiView() {
   };
 
   return (
-    <div className="pt-[110px] md:pt-[130px] bg-[#F7F1E8] min-h-screen text-[#2A1C1C]">
+    <div className="pt-[95px] md:pt-[110px] bg-[#F7F1E8] min-h-screen text-[#2A1C1C]">
       
       {/* Hero Interna */}
       <section className="relative w-full h-[50vh] min-h-[380px] flex items-center justify-center text-center overflow-hidden bg-[#1c1010]">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/contatti-hero.jpg"
+            src="/images/contatti-hero.png"
             alt="I contatti e l'accoglienza dell'Agriturismo Al Celone a Foggia"
             className="w-full h-full object-cover opacity-40 scale-103 object-center"
             onError={(e) => {
