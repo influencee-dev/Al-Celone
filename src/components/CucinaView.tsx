@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, X, Sparkles, Award } from 'lucide-react';
+import React from 'react';
+import { motion } from 'motion/react';
 
 interface GalleryItem {
   id: string;
@@ -81,30 +80,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 export default function CucinaView() {
-  const [activePhotoIdx, setActivePhotoIdx] = useState<number | null>(null);
-
-  // Keybindings for smooth Lightbox scrolling
-  useEffect(() => {
-    if (activePhotoIdx === null) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setActivePhotoIdx(null);
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activePhotoIdx]);
-
-  const showNext = () => {
-    setActivePhotoIdx((prev) => (prev !== null ? (prev + 1) % GALLERY_ITEMS.length : null));
-  };
-
-  const showPrev = () => {
-    setActivePhotoIdx((prev) => (prev !== null ? (prev - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length : null));
-  };
-
   return (
     <div className="pt-[95px] md:pt-[110px] bg-cream-bg min-h-screen">
       
@@ -183,12 +158,11 @@ export default function CucinaView() {
 
           {/* Masonry Columns on Desktop */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {GALLERY_ITEMS.map((item, idx) => (
+            {GALLERY_ITEMS.map((item) => (
               <motion.div
                 key={item.id}
-                onClick={() => setActivePhotoIdx(idx)}
-                whileHover={{ y: -6, scale: 1.015 }}
-                className={`group relative bg-cream-bg rounded overflow-hidden shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 border border-primary-dark/5 ${
+                whileHover={{ scale: 1.015 }}
+                className={`group relative bg-cream-bg rounded overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-primary-dark/5 ${
                   item.isTall ? 'row-span-2' : ''
                 }`}
               >
@@ -213,91 +187,6 @@ export default function CucinaView() {
           </div>
         </div>
       </section>
-
-      {/* PREMIUM SEAMLESS LIGHTBOX PORTAL */}
-      <AnimatePresence>
-        {activePhotoIdx !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={(e) => {
-              if (e.target === e.currentTarget) setActivePhotoIdx(null);
-            }}
-            className="fixed inset-0 bg-primary-dark/98 backdrop-blur-md z-[2000] flex items-center justify-center select-none"
-            role="dialog"
-            aria-modal="true"
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setActivePhotoIdx(null)}
-              className="absolute top-6 right-6 text-cream-bg/85 hover:text-white hover:scale-110 cursor-pointer p-3 z-50 transition-all focus:outline-none"
-              aria-label="Chiudi galleria"
-            >
-              <X size={32} />
-            </button>
-
-            {/* Left Prev Arrow Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                showPrev();
-              }}
-              className="absolute left-6 text-cream-bg/75 hover:text-white hover:bg-white/5 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer transition-colors focus:outline-none"
-              aria-label="Immagine precedente"
-            >
-              <ChevronLeft size={36} />
-            </button>
-
-            {/* Content display container */}
-            <div className="max-w-4xl max-h-[85vh] px-8 flex flex-col items-center justify-center">
-              <motion.img
-                key={GALLERY_ITEMS[activePhotoIdx].id}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.25 }}
-                src={GALLERY_ITEMS[activePhotoIdx].src}
-                alt={GALLERY_ITEMS[activePhotoIdx].caption}
-                onError={(e) => {
-                  if (e.currentTarget.src !== GALLERY_ITEMS[activePhotoIdx].fallbackSrc) {
-                    e.currentTarget.src = GALLERY_ITEMS[activePhotoIdx].fallbackSrc;
-                  }
-                }}
-                className="max-w-full max-h-[70vh] object-contain rounded shadow-2xl border border-white/5"
-                referrerPolicy="no-referrer"
-              />
-              
-              <motion.div
-                key={`cap-${GALLERY_ITEMS[activePhotoIdx].id}`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-center mt-6 max-w-2xl"
-              >
-                <p className="font-serif text-cream-bg text-xl md:text-2xl leading-relaxed font-light">
-                  {GALLERY_ITEMS[activePhotoIdx].caption}
-                </p>
-                <span className="inline-block mt-2 font-mono text-[11px] tracking-widest text-sage-accent/90 uppercase">
-                  Piatto {activePhotoIdx + 1} di {GALLERY_ITEMS.length}
-                </span>
-              </motion.div>
-            </div>
-
-            {/* Right Next Arrow Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                showNext();
-              }}
-              className="absolute right-6 text-cream-bg/75 hover:text-white hover:bg-white/5 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer transition-colors focus:outline-none"
-              aria-label="Immagine successiva"
-            >
-              <ChevronRight size={36} />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
     </div>
   );
 }
