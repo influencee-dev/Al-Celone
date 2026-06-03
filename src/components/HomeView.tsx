@@ -259,6 +259,66 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
         </div>
       </section>
 
+      {/* ROW CUCINA (LINK TO CUCINA WITH DARIO.PNG ON THE LEFT) */}
+      <section className="py-20 md:py-28 px-6 md:px-16 container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* Foto a sinistra - più alta che larga */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded overflow-hidden shadow-xl group border border-primary-dark/5">
+              <img
+                src="./images/dario.png"
+                alt="La nostra autentica cucina rurale d'eccellenza"
+                className="w-full h-[450px] md:h-[550px] object-cover block group-hover:scale-105 transition-all duration-700"
+                onError={(e) => {
+                  if (e.currentTarget.src !== 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800') {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800';
+                  }
+                }}
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-4 border border-white/20 pointer-events-none z-10" />
+            </div>
+          </motion.div>
+
+          {/* Testo scritto a destra */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col text-left"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif text-primary-dark mb-4 after:content-[''] after:block after:w-10 after:h-[2px] after:bg-sage-accent after:mt-3">
+              I Sapori Autentici del Celone
+            </h2>
+            <p className="text-lg md:text-xl font-serif italic text-primary-dark mb-6 leading-relaxed">
+              Dall'orto biologico alla tavola, una tradizione genuina.
+            </p>
+            
+            <p className="text-charcoal-text font-light text-base md:text-lg mb-6 leading-relaxed">
+              La nostra proposta gastronomica è un inno alla biodiversità e alla ricchezza del Tavoliere. Le verdure fresche raccolte all'alba nel nostro orto biologico, l'olio extravergine d'oliva foggiano e la pasta fresca tirata a mano creano piatti ricchi di storia e di sapore contadino.
+            </p>
+            
+            <div>
+              <button
+                onClick={() => onViewChange('cucina')}
+                className="btn btn-secondary border-primary-dark hover:bg-primary-dark hover:text-cream-bg text-xs px-6 py-3 tracking-widest uppercase rounded cursor-pointer transition-all duration-300"
+              >
+                Scopri la nostra cucina
+              </button>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* TABLE RESERVATION FORM */}
       <section className="py-20 px-6 md:px-16 bg-cream-bg" id="booking-section">
         <div className="container mx-auto max-w-5xl">
