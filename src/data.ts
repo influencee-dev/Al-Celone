@@ -106,7 +106,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2 Persone (Letto Matrimoniale)',
     pricePerNight: '€85 / Notte',
     amenities: ['Bagno Privato', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione Inclusa', 'Ingresso Indipendente'],
-    imageUrl: '/images/camera1.png',
+    imageUrl: './images/camera1.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200'
   },
   {
@@ -116,7 +116,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2-3 Persone (Matrimoniale + Letto Singolo)',
     pricePerNight: '€95 / Notte',
     amenities: ['Bagno Privato', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione Inclusa', 'TV Flat Screen', 'Frigobar'],
-    imageUrl: '/images/camera2.png',
+    imageUrl: './images/camera2.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200'
   },
   {
@@ -126,7 +126,7 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2-4 Persone (Matrimoniale + 2 Letti Singoli)',
     pricePerNight: '€130 / Notte',
     amenities: ['Doppio Bagno', 'Giardino Privato', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione Inclusa', 'Angolo Tisane', 'Cassaforte'],
-    imageUrl: '/images/camera3.png',
+    imageUrl: './images/camera3.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200'
   },
   {
@@ -136,16 +136,16 @@ export const AGRITURISMO_ROOMS: Room[] = [
     capacity: '2 Persone (Letto King Size)',
     pricePerNight: '€110 / Notte',
     amenities: ['Bagno Suite con Vasca', 'Area Salotto', 'Aria Condizionata', 'Wi-Fi Gratuito', 'Colazione in camera', 'Macchina Caffè espresso', 'Ingresso Indipendente'],
-    imageUrl: '/images/camera4.png',
+    imageUrl: './images/camera4.png',
     fallbackUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200'
   }
 ];
 
 export const GALLERY_PHOTOS = [
-  { url: '/images/galleria-grano.jpg', fallback: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=1200', title: 'I nostri campi di grano al tramonto' },
-  { url: '/images/galleria-antipasti.jpg', fallback: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1200', title: 'Tavolozza rurale di antipasti genuini' },
-  { url: '/images/galleria-uliveto.jpg', fallback: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200', title: 'Uliveto secolare biologico' },
-  { url: '/images/galleria-orecchiette.jpg', fallback: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200', title: 'Le celebri orecchiette tirate a mano' },
-  { url: '/images/galleria-giardino.jpg', fallback: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=1200', title: 'Il giardino fiorito dell’agriturismo' },
-  { url: '/images/galleria-camere.jpg', fallback: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200', title: 'Relax rustico nelle nostre camere' }
+  { url: './images/galleria-grano.jpg', fallback: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=1200', title: 'I nostri campi di grano al tramonto' },
+  { url: './images/galleria-antipasti.jpg', fallback: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1200', title: 'Tavolozza rurale di antipasti genuini' },
+  { url: './images/galleria-uliveto.jpg', fallback: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200', title: 'Uliveto secolare biologico' },
+  { url: './images/galleria-orecchiette.jpg', fallback: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200', title: 'Le celebri orecchiette tirate a mano' },
+  { url: './images/galleria-giardino.jpg', fallback: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=1200', title: 'Il giardino fiorito dell’agriturismo' },
+  { url: './images/galleria-camere.jpg', fallback: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200', title: 'Relax rustico nelle nostre camere' }
 ];

@@ -91,7 +91,7 @@ export default function ContattiView() {
       <section className="relative w-full h-[50vh] min-h-[380px] flex items-center justify-center text-center overflow-hidden bg-[#1c1010]">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/contatti-hero.png"
+            src="./images/contatti-hero.png"
             alt="I contatti e l'accoglienza dell'Agriturismo Al Celone a Foggia"
             className="w-full h-full object-cover opacity-65 scale-103 object-center"
             onError={(e) => {

@@ -103,7 +103,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
         {/* Soft atmospheric rustic overlay & background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/home-hero.png"
+            src="./images/home-hero.png"
             alt="Paesaggio rurale e uliveti pugliesi dell'Agriturismo Al Celone"
             className="w-full h-full object-cover opacity-70 scale-105"
             onError={(e) => {
@@ -127,7 +127,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           <div className="flex flex-col items-center justify-center mb-10 md:mb-14 select-none">
             {/* Custom Logo Image with fallback */}
             <img 
-              src="/images/logo.png" 
+              src="./images/logo.png" 
               alt="Logo Al Celone" 
               className="max-h-80 md:max-h-[380px] lg:max-h-[460px] w-auto max-w-[90%] object-contain filter drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]"
               onError={(e) => {
@@ -202,7 +202,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           >
             <div className="relative rounded overflow-hidden shadow-xl group border border-primary-dark/5">
               <img
-                src="/images/home-ospitalita.png"
+                src="./images/home-ospitalita.png"
                 alt="Dettaglio ospitale ed accogliente dell'Agriturismo Al Celone"
                 className="w-full h-[380px] md:h-[480px] object-cover block group-hover:scale-105 transition-all duration-700"
                 onError={(e) => {
@@ -469,7 +469,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
             {/* Sidebar Column (Image & Info Box) */}
             <div className="md:col-span-5 relative min-h-[350px] flex flex-col justify-end bg-[#1c1010]">
               <img
-                src="/images/home-form.png"
+                src="./images/home-form.png"
                 alt="Tavola imbandita con pietanze tradizionali fatte in casa"
                 className="absolute inset-0 w-full h-full object-cover opacity-80"
                 onError={(e) => {
