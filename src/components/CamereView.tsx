@@ -158,9 +158,6 @@ export default function CamereView() {
         </div>
         
         <div className="relative z-10 max-w-3xl mx-auto">
-          <span className="font-sans text-xs tracking-[0.3em] text-sage-accent uppercase block mb-3 font-semibold">
-            Atmosfere di Charme e Quiete Rurale
-          </span>
           <h1 className="text-4xl md:text-5xl font-serif text-[#F7F1E8] mb-6 font-light tracking-wide">
             Le Nostre Camere
           </h1>

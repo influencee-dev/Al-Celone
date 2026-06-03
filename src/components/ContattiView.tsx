@@ -105,9 +105,6 @@ export default function ContattiView() {
         </div>
         
         <div className="relative z-10 max-w-4xl px-6">
-          <span className="font-sans text-xs tracking-[0.3em] text-sage-accent uppercase block mb-3 font-semibold">
-            Ospitalità e Tradizione in Capitanata
-          </span>
           <h1 className="font-serif text-[#F7F1E8] text-4xl md:text-5xl font-light tracking-wide mb-4">
             Contatti e Dove Siamo
           </h1>
