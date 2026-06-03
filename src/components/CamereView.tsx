@@ -146,7 +146,7 @@ export default function CamereView() {
           <img
             src="/images/camere-hero.png"
             alt="Atmosfera rilassante e soffusa delle camere rurali dell'Agriturismo Al Celone"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-60"
             onError={(e) => {
               if (e.currentTarget.src !== 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200') {
                 e.currentTarget.src = 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200';
@@ -154,7 +154,7 @@ export default function CamereView() {
             }}
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary-dark/40 to-[#1c1010]/15" />
         </div>
         
         <div className="relative z-10 max-w-3xl mx-auto">

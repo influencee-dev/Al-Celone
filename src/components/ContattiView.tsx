@@ -93,7 +93,7 @@ export default function ContattiView() {
           <img
             src="/images/contatti-hero.png"
             alt="I contatti e l'accoglienza dell'Agriturismo Al Celone a Foggia"
-            className="w-full h-full object-cover opacity-40 scale-103 object-center"
+            className="w-full h-full object-cover opacity-65 scale-103 object-center"
             onError={(e) => {
               if (e.currentTarget.src !== 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200') {
                 e.currentTarget.src = 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200';
@@ -101,7 +101,7 @@ export default function ContattiView() {
             }}
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/45 to-[#1c1010]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-[#1c1010]/35 to-[#1c1010]/10" />
         </div>
         
         <div className="relative z-10 max-w-4xl px-6">

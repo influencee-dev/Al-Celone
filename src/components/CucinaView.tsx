@@ -114,7 +114,7 @@ export default function CucinaView() {
           <img
             src="/images/cucina-hero.png"
             alt="I segreti e la passione della cucina dell'Agriturismo Al Celone"
-            className="w-full h-full object-cover opacity-40 scale-103 object-center"
+            className="w-full h-full object-cover opacity-65 scale-103 object-center"
             onError={(e) => {
               if (e.currentTarget.src !== 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200') {
                 e.currentTarget.src = 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200';
@@ -122,7 +122,7 @@ export default function CucinaView() {
             }}
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/45 to-[#1c1010]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-[#1c1010]/35 to-[#1c1010]/10" />
         </div>
         
         <div className="relative z-10 max-w-4xl px-6">

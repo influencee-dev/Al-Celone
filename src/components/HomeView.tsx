@@ -105,7 +105,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           <img
             src="/images/home-hero.png"
             alt="Paesaggio rurale e uliveti pugliesi dell'Agriturismo Al Celone"
-            className="w-full h-full object-cover opacity-45 scale-105"
+            className="w-full h-full object-cover opacity-70 scale-105"
             onError={(e) => {
               if (e.currentTarget.src !== 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1920') {
                 e.currentTarget.src = 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1920';
@@ -113,7 +113,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
             }}
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-[#1c1010]/70 to-[#1c1010]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-[#1c1010]/45 to-[#1c1010]/10" />
         </div>
 
         {/* Content Box with stagger motion */}
@@ -471,7 +471,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
               <img
                 src="/images/home-form.png"
                 alt="Tavola imbandita con pietanze tradizionali fatte in casa"
-                className="absolute inset-0 w-full h-full object-cover opacity-60"
+                className="absolute inset-0 w-full h-full object-cover opacity-80"
                 onError={(e) => {
                   if (e.currentTarget.src !== 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200') {
                     e.currentTarget.src = 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200';
@@ -480,7 +480,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
                 referrerPolicy="no-referrer"
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/85 via-primary-dark/25 to-transparent pointer-events-none" />
  
               {/* Informative Floating Hours Badge */}
               <div className="relative z-10 p-5 m-5 bg-primary-dark/85 rounded border border-white/10 backdrop-blur-md shadow-md">
