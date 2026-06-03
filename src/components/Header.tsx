@@ -73,7 +73,14 @@ export default function Header({ currentView, onViewChange, onTableBookingClick 
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-10" aria-label="Navigazione principale">
+        <nav 
+          className={`hidden md:flex items-center gap-4 lg:gap-10 transition-all duration-300 ${
+            isScrolled || currentView !== 'home'
+              ? 'opacity-100 scale-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none scale-95'
+          }`} 
+          aria-label="Navigazione principale"
+        >
           <button
             onClick={() => handleNavClick('home')}
             className={`font-sans text-[13px] font-medium tracking-widest uppercase transition-all duration-200 cursor-pointer relative py-2 ${
