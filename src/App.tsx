@@ -45,20 +45,27 @@ export default function App() {
   };
 
   const handleTableBookingClick = () => {
-    // If we're not on home, flip to home first, then scroll
-    if (currentView !== 'home') {
-      handleViewChange('home');
-      setTimeout(() => {
+    const scrollToSection = () => {
+      let attempts = 0;
+      const interval = setInterval(() => {
         const bookingSection = document.getElementById('booking-section');
         if (bookingSection) {
-          bookingSection.scrollIntoView({ behavior: 'smooth' });
+          bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          clearInterval(interval);
         }
-      }, 350);
+        attempts++;
+        if (attempts >= 15) {
+          clearInterval(interval);
+        }
+      }, 80);
+    };
+
+    if (currentView !== 'home') {
+      handleViewChange('home');
+      // Start attempting to scroll after a tiny delay to allow React state update
+      setTimeout(scrollToSection, 100);
     } else {
-      const bookingSection = document.getElementById('booking-section');
-      if (bookingSection) {
-        bookingSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      scrollToSection();
     }
   };
 
