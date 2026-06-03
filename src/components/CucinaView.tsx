@@ -192,10 +192,10 @@ export default function CucinaView() {
                   item.isTall ? 'row-span-2' : ''
                 }`}
               >
-                <div className="relative overflow-hidden w-full h-full">
+                <div className="relative overflow-hidden w-full h-full bg-[#1c1010]">
                   <img
                     src={item.src}
-                    alt={item.caption}
+                    alt=""
                     onError={(e) => {
                       if (e.currentTarget.src !== item.fallbackSrc) {
                         e.currentTarget.src = item.fallbackSrc;
@@ -207,16 +207,6 @@ export default function CucinaView() {
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
-                  
-                  {/* Micro gradient ambient and hover caption overlay */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/60 to-transparent p-6 flex flex-col justify-end translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                    <p className="font-serif text-cream-bg text-lg leading-tight mb-1">
-                      {item.caption.split(' coltivate')[0].split(' calda')[0].split(' con ')[0]}
-                    </p>
-                    <span className="text-[10px] text-sage-accent tracking-widest uppercase font-semibold">
-                      Dettaglio rurale • Zoom
-                    </span>
-                  </div>
                 </div>
               </motion.div>
             ))}
