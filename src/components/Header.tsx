@@ -51,7 +51,11 @@ export default function Header({ currentView, onViewChange, onTableBookingClick 
             : 'bg-transparent h-[140px] md:h-[170px]'
         }`}
       >
-        <div className="logo-container flex items-center">
+        <div className={`logo-container flex items-center transition-all duration-300 ${
+          isScrolled || currentView !== 'home'
+            ? 'opacity-100 scale-100'
+            : 'opacity-0 pointer-events-none scale-95'
+        }`}>
           <button
             onClick={() => handleNavClick('home')}
             className="flex items-center cursor-pointer"

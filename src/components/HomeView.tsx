@@ -129,7 +129,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
             <img 
               src="/images/logo.png" 
               alt="Logo Al Celone" 
-              className="max-h-96 md:max-h-[480px] lg:max-h-[580px] w-auto max-w-[95%] object-contain filter drop-shadow-[0_8px_35px_rgba(0,0,0,0.7)]"
+              className="max-h-80 md:max-h-[380px] lg:max-h-[460px] w-auto max-w-[90%] object-contain filter drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]"
               onError={(e) => {
                 // If logo.png doesn't exist yet, we show a clean message/placeholder
                 e.currentTarget.style.display = 'none';
