@@ -28,7 +28,7 @@ export default function Footer({ onViewChange }: FooterProps) {
             className="flex items-center cursor-pointer justify-start self-start"
           >
             <img 
-              src="/logo.png" 
+              src="/images/logo.png" 
               alt="Al Celone Logo" 
               className="h-20 w-auto object-contain transition-transform duration-300 hover:scale-103"
             />

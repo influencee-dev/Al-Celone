@@ -57,7 +57,7 @@ export default function Header({ currentView, onViewChange, onTableBookingClick 
             className="flex items-center cursor-pointer"
           >
             <img 
-              src="/logo.png" 
+              src="/images/logo.png" 
               alt="Al Celone Logo" 
               className={`w-auto object-contain transition-all duration-300 hover:scale-103 ${
                 isScrolled || currentView !== 'home'

@@ -127,7 +127,7 @@ export default function HomeView({ onViewChange }: HomeViewProps) {
           <div className="flex flex-col items-center justify-center mb-10 md:mb-14 select-none">
             {/* Custom Logo Image with fallback */}
             <img 
-              src="/logo.png" 
+              src="/images/logo.png" 
               alt="Logo Al Celone" 
               className="max-h-96 md:max-h-[480px] lg:max-h-[580px] w-auto max-w-[95%] object-contain filter drop-shadow-[0_8px_35px_rgba(0,0,0,0.7)]"
               onError={(e) => {
