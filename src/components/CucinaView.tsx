@@ -166,7 +166,9 @@ export default function CucinaView() {
                   item.isTall ? 'row-span-2 md:h-full' : ''
                 }`}
               >
-                <div className="relative overflow-hidden w-full h-full flex-grow bg-[#1c1010]">
+                <div className={`relative overflow-hidden w-full flex-grow bg-[#1c1010] ${
+                  item.isTall ? 'h-[400px] md:h-full min-h-[400px]' : 'h-[250px] min-h-[250px]'
+                }`}>
                   <img
                     src={item.src}
                     alt=""
@@ -175,9 +177,7 @@ export default function CucinaView() {
                         e.currentTarget.src = item.fallbackSrc;
                       }
                     }}
-                    className={`w-full object-cover block group-hover:scale-105 transition-transform duration-700 ${
-                      item.isTall ? 'h-[400px] md:h-full flex-grow' : 'h-[250px]'
-                    }`}
+                    className="absolute inset-0 w-full h-full object-cover block group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
