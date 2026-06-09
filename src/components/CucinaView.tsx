@@ -162,11 +162,11 @@ export default function CucinaView() {
               <motion.div
                 key={item.id}
                 whileHover={{ scale: 1.015 }}
-                className={`group relative bg-cream-bg rounded overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-primary-dark/5 ${
-                  item.isTall ? 'row-span-2' : ''
+                className={`group relative bg-cream-bg rounded overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-primary-dark/5 flex flex-col ${
+                  item.isTall ? 'row-span-2 md:h-full' : ''
                 }`}
               >
-                <div className="relative overflow-hidden w-full h-full bg-[#1c1010]">
+                <div className="relative overflow-hidden w-full h-full flex-grow bg-[#1c1010]">
                   <img
                     src={item.src}
                     alt=""
@@ -176,7 +176,7 @@ export default function CucinaView() {
                       }
                     }}
                     className={`w-full object-cover block group-hover:scale-105 transition-transform duration-700 ${
-                      item.isTall ? 'h-[500px]' : 'h-[250px]'
+                      item.isTall ? 'h-[400px] md:h-full flex-grow' : 'h-[250px]'
                     }`}
                     loading="lazy"
                     referrerPolicy="no-referrer"
