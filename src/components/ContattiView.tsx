@@ -26,6 +26,8 @@ export default function ContattiView() {
 
   const [errors, setErrors] = useState<Partial<Record<keyof LocalContactForm, string>>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   const handleInputChange = (
@@ -71,15 +73,59 @@ export default function ContattiView() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  const getWhatsAppUrl = () => {
+    const text = `Ciao Agriturismo Al Celone! Vi ho appena inviato una richiesta di contatto tramite il vostro sito web:
+- Nome: ${formData.nome || ''}
+- Email: ${formData.email || ''}
+- Telefono: ${formData.telefono || ''}
+- Messaggio: ${formData.messaggio || ''}
 
-  const handleSubmit = (e: React.FormEvent) => {
+Grazie!`;
+    return `https://wa.me/393343434747?text=${encodeURIComponent(text)}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsSubmitted(true);
-      // Optional: Smooth scroll to form section
-      const formSection = document.getElementById('info-section');
-      if (formSection) {
-        formSection.scrollIntoView({ behavior: 'smooth' });
+      setIsSubmitting(true);
+      setSubmitError(null);
+      try {
+        const response = await fetch('/api/brevo/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            tipoForm: 'contatti',
+          }),
+        });
+
+        const resData = await response.json();
+        if (response.ok && resData.success) {
+          setIsSubmitted(true);
+
+          // Auto-open WhatsApp with the structured message
+          try {
+            const waUrl = getWhatsAppUrl();
+            window.open(waUrl, '_blank');
+          } catch (waErr) {
+            console.error("Popup window.open blocked by browser restriction", waErr);
+          }
+
+          // Optional: Smooth scroll to form section
+          const formSection = document.getElementById('info-section');
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          setSubmitError(resData.error || "Errore durante l'invio della richiesta di contatto.");
+        }
+      } catch (err: any) {
+        console.error("Submission error:", err);
+        setSubmitError("Errore di connessione. Verificare la rete e riprovare.");
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -362,11 +408,20 @@ export default function ContattiView() {
 
                       {/* Submit */}
                       <div className="md:col-span-2 mt-4">
+                        {submitError && (
+                          <div className="p-3 mb-4 rounded bg-[#C36B4B]/10 border border-[#C36B4B]/25 text-xs text-[#C36B4B] font-medium text-center">
+                            {submitError}
+                          </div>
+                        )}
+
                         <button
                           type="submit"
-                          className="w-full py-4 px-6 bg-[#3d2525] text-[#F7F1E8] border border-[#3d2525] rounded font-semibold text-xs tracking-wider uppercase cursor-pointer hover:bg-transparent hover:text-[#3d2525] transition-all duration-300 focus:outline-none"
+                          disabled={isSubmitting}
+                          className={`w-full py-4 px-6 bg-[#3d2525] text-[#F7F1E8] border border-[#3d2525] rounded font-semibold text-xs tracking-wider uppercase cursor-pointer hover:bg-transparent hover:text-[#3d2525] transition-all duration-300 focus:outline-none ${
+                            isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
                         >
-                          Invia Messaggio di Richiesta
+                          {isSubmitting ? 'Inscrizione/Invio in corso...' : 'Invia Messaggio di Richiesta'}
                         </button>
                       </div>
 
@@ -385,15 +440,29 @@ export default function ContattiView() {
                     <p className="text-sm md:text-base text-[#2A1C1C] max-w-lg mx-auto leading-relaxed mb-6">
                       Grazie! La tua richiesta è stata ricevuta. A breve riceverai un'email di conferma: ti chiediamo di attenderla per completare la richiesta.
                     </p>
-                    <button
-                      onClick={() => {
-                        setIsSubmitted(false);
-                        setFormData({ nome: '', email: '', telefono: '', messaggio: '', privacy: false });
-                      }}
-                      className="text-xs font-bold tracking-widest text-[#3d2525] border-b border-[#3d2525] hover:text-[#7C8B6F] hover:border-[#7C8B6F] transition-all duration-200 pb-0.5 uppercase cursor-pointer"
-                    >
-                      Invia un'altra richiesta
-                    </button>
+                    <div className="mt-5 max-w-sm mx-auto flex flex-col gap-3">
+                      <a
+                        href={getWhatsAppUrl()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 shadow hover:scale-[1.01]"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.49-4.22c1.554.912 3.197 1.393 4.925 1.396 5.617 0 10.187-4.57 10.191-10.191.002-2.724-1.055-5.282-2.976-7.205C16.736 1.859 14.181.803 11.45.803c-5.626 0-10.2 4.574-10.203 10.194-.001 1.83.479 3.619 1.39 5.166L1.583 22l6.02-1.579zM17.17 14.18c-.28-.141-1.65-.814-1.905-.907-.255-.094-.44-.141-.626.141-.186.281-.72.907-.882 1.092-.162.186-.324.21-.605.068-.282-.14-.1.18-.783-.706-2.527-2.254-4.143-5.11-4.636-5.955-.162-.282-.017-.433.123-.574.127-.127.282-.329.424-.492.14-.162.187-.281.281-.469.095-.187.047-.351-.023-.492-.07-.141-.627-1.513-.859-2.074-.227-.546-.456-.472-.626-.48-.161-.008-.347-.01-.532-.01-.185 0-.486.07-.741.352-.255.281-.974.952-.974 2.321 0 1.369.996 2.69 1.112 2.846.115.156 1.954 2.985 4.735 4.187.661.286 1.178.457 1.581.585.664.211 1.268.181 1.745.11.533-.08 1.651-.676 1.883-1.328.232-.651.232-1.21.162-1.328-.07-.118-.255-.187-.536-.328z"/>
+                        </svg>
+                        Invia Messaggio su WhatsApp
+                      </a>
+
+                      <button
+                        onClick={() => {
+                          setIsSubmitted(false);
+                          setFormData({ nome: '', email: '', telefono: '', messaggio: '', privacy: false });
+                        }}
+                        className="text-xs font-bold tracking-widest text-[#3d2525] hover:text-[#7C8B6F] transition-all duration-200 pb-0.5 uppercase cursor-pointer"
+                      >
+                        Invia un'altra richiesta
+                      </button>
+                    </div>
                   </motion.div>
                 )}
 

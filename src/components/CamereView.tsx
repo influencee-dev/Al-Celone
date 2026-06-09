@@ -66,6 +66,8 @@ export default function CamereView() {
 
   const [errors, setErrors] = useState<Partial<Record<keyof typeof formData, string>>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [activePhotoIdx, setActivePhotoIdx] = useState<number | null>(null);
 
   const handleInputChange = (
@@ -112,13 +114,60 @@ export default function CamereView() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const getWhatsAppUrl = () => {
+    const text = `Ciao Agriturismo Al Celone! Ho appena richiesto la disponibilità di soggiorno in camera tramite il vostro sito web. Ecco i miei dettagli:
+- Nome: ${formData.nome || ''}
+- Email: ${formData.email || ''}
+- Telefono: ${formData.telefono || ''}
+- Periodo: ${formData.periodo || ''}
+- Ospiti: ${formData.ospiti || 2}
+- Note/Esigenze: ${formData.note || 'nessuna'}
+
+Potete farmi sapere le soluzioni disponibili? Grazie!`;
+    return `https://wa.me/393343434747?text=${encodeURIComponent(text)}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsSubmitted(true);
-      const el = document.getElementById('camera-booking-section');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+      setIsSubmitting(true);
+      setSubmitError(null);
+      try {
+        const response = await fetch('/api/brevo/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            tipoForm: 'camere',
+          }),
+        });
+
+        const resData = await response.json();
+        if (response.ok && resData.success) {
+          setIsSubmitted(true);
+
+          // Auto-open WhatsApp with the structured message
+          try {
+            const waUrl = getWhatsAppUrl();
+            window.open(waUrl, '_blank');
+          } catch (waErr) {
+            console.error("Popup window.open blocked by browser restriction", waErr);
+          }
+
+          const el = document.getElementById('camera-booking-section');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          setSubmitError(resData.error || "Errore durante la trasmissione della richiesta.");
+        }
+      } catch (err: any) {
+        console.error("Submission error:", err);
+        setSubmitError("Errore di connessione. Verificare la rete e riprovare.");
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -431,11 +480,20 @@ export default function CamereView() {
                 </div>
 
                 <div className="pt-2">
+                  {submitError && (
+                    <div className="p-3 mb-4 rounded bg-terracotta/10 border border-terracotta/25 text-xs text-terracotta font-medium text-center">
+                      {submitError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded bg-primary-dark border border-primary-dark hover:bg-transparent hover:text-primary-dark text-cream-bg font-semibold text-xs tracking-widest uppercase transition-all duration-300 shadow cursor-pointer text-center"
+                    disabled={isSubmitting}
+                    className={`w-full py-3.5 px-6 rounded bg-primary-dark border border-primary-dark hover:bg-transparent hover:text-primary-dark text-cream-bg font-semibold text-xs tracking-widest uppercase transition-all duration-300 shadow cursor-pointer text-center ${
+                      isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                   >
-                    Invia Richiesta Disponibilità
+                    {isSubmitting ? 'Inscrizione/Invio in corso...' : 'Invia Richiesta Disponibilità'}
                   </button>
                 </div>
 
@@ -458,12 +516,27 @@ export default function CamereView() {
                 <div className="p-4 rounded bg-[#edf7ed] border border-[#2e7d32]/20 max-w-sm mx-auto text-xs text-[#1b5e20]">
                   Il nostro Staff verificherà la disponibilità del nostro alloggio biologico e ti risponderà via email all’indirizzo <strong>{formData.email}</strong> fornendoti i dettagli e soluzioni ideali entro 24 ore.
                 </div>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="mt-8 text-xs font-bold tracking-widest text-[#3d2525] border-b border-[#3d2525] hover:text-sage-accent hover:border-sage-accent transition-colors pb-0.5 uppercase cursor-pointer"
-                >
-                  Fai un'altra richiesta
-                </button>
+
+                <div className="mt-6 max-w-sm mx-auto flex flex-col gap-3">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 shadow hover:scale-[1.01]"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.49-4.22c1.554.912 3.197 1.393 4.925 1.396 5.617 0 10.187-4.57 10.191-10.191.002-2.724-1.055-5.282-2.976-7.205C16.736 1.859 14.181.803 11.45.803c-5.626 0-10.2 4.574-10.203 10.194-.001 1.83.479 3.619 1.39 5.166L1.583 22l6.02-1.579zM17.17 14.18c-.28-.141-1.65-.814-1.905-.907-.255-.094-.44-.141-.626.141-.186.281-.72.907-.882 1.092-.162.186-.324.21-.605.068-.282-.14-.1.18-.783-.706-2.527-2.254-4.143-5.11-4.636-5.955-.162-.282-.017-.433.123-.574.127-.127.282-.329.424-.492.14-.162.187-.281.281-.469.095-.187.047-.351-.023-.492-.07-.141-.627-1.513-.859-2.074-.227-.546-.456-.472-.626-.48-.161-.008-.347-.01-.532-.01-.185 0-.486.07-.741.352-.255.281-.974.952-.974 2.321 0 1.369.996 2.69 1.112 2.846.115.156 1.954 2.985 4.735 4.187.661.286 1.178.457 1.581.585.664.211 1.268.181 1.745.11.533-.08 1.651-.676 1.883-1.328.232-.651.232-1.21.162-1.328-.07-.118-.255-.187-.536-.328z"/>
+                    </svg>
+                    Invia Richiesta su WhatsApp
+                  </a>
+
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-xs font-bold tracking-widest text-[#3d2525] hover:text-sage-accent transition-colors pb-0.5 uppercase cursor-pointer"
+                  >
+                    Fai un'altra richiesta
+                  </button>
+                </div>
               </motion.div>
             )}
           </div>
